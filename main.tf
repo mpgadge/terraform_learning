@@ -14,6 +14,9 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+data "aws_vpc" "default" {
+  default = true
+}
 resource "aws_instance" "web_monu" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
